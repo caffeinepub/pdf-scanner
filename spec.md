@@ -1,26 +1,31 @@
-# Scanify - Dynamic Pictures & Smart Camera
+# PDF Scanner
 
 ## Current State
-Scanify is a full-featured document scanning app with camera scanning, real-time document tracking, AI document type detection, OCR, and multiple export options. Camera auto-starts using the rear camera by default.
+Scanify is a full-featured mobile document scanning app with camera, gallery, OCR, AI detection, dark/light themes, and export options built into the scanner flow.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Dynamic pictures gallery: browsable scanned images with thumbnails, full-screen lightbox, swipe navigation, rename/delete/share actions
-- Smart camera enhancements: pinch-to-zoom, tap-to-focus with visual ring indicator, exposure lock indicator, rule-of-thirds grid overlay, improved animated document edge detection, zoom level display, tilt/distance hints
+- A "Convert Images" section/page where users can select multiple pictures from their device (file input accepting images)
+- Preview selected images in a grid
+- Conversion options: PDF, PNG, JPG
+- Convert button that processes selected images into the chosen format and triggers a download
+- For PDF: combine all selected images into a single multi-page PDF using jsPDF or canvas-based approach
+- For PNG/JPG: if single image selected, convert and download; if multiple, download as a zip or individually
+- Progress indicator during conversion
+- Option to clear/reset selection
 
 ### Modify
-- ScanPage: integrate smart camera features (zoom, tap-to-focus, exposure feedback, better edge detection)
-- DashboardPage: show recent scans as dynamic picture tiles
-- App.tsx: add GalleryPage route
-- Navbar: add Gallery link
+- Add a "Convert" entry in the main navigation or dashboard so users can access this feature easily
 
 ### Remove
 - Nothing removed
 
 ## Implementation Plan
-1. Enhance ScanPage with smart camera: pinch-to-zoom, tap-to-focus visual ring, zoom indicator, exposure feedback, improved corner markers
-2. Add GalleryPage with dynamic picture grid, full-screen lightbox viewer, swipe navigation, and image management
-3. Add gallery route to App.tsx
-4. Update DashboardPage with recent scans as picture tiles
-5. Update Navbar with Gallery link
+1. Create a new `ConvertImages` page/component
+2. File input (multi-select, accepts image/*) with drag-and-drop support
+3. Image preview grid with remove-individual option
+4. Format selector: PDF / PNG / JPG toggle
+5. Convert & Download button with loading state
+6. Use canvas API to handle PNG/JPG conversion; use jsPDF (already likely available or via dynamic import) for PDF generation
+7. Wire the page into the router and add nav link

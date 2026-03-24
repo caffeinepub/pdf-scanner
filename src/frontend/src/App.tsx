@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ProfileSetup from "./components/ProfileSetup";
 import AdminPage from "./pages/AdminPage";
+import ConvertImages from "./pages/ConvertImages";
 import DashboardPage from "./pages/DashboardPage";
 import GalleryPage from "./pages/GalleryPage";
 import LandingPage from "./pages/LandingPage";
@@ -20,7 +21,7 @@ import QRScannerPage from "./pages/QRScannerPage";
 import ReadDocumentPage from "./pages/ReadDocumentPage";
 import ScanPage from "./pages/ScanPage";
 
-// ─── PIN Lock Overlay ────────────────────────────────────────────────────
+// ─── PIN Lock Overlay ────────────────────────────────────────────
 function PinLockOverlay({ onUnlock }: { onUnlock: () => void }) {
   const [entered, setEntered] = useState<string[]>([]);
   const [error, setError] = useState(false);
@@ -229,6 +230,12 @@ const galleryRoute = createRoute({
   component: GalleryPage,
 });
 
+const convertRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/convert",
+  component: ConvertImages,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   scanRoute,
@@ -239,6 +246,7 @@ const routeTree = rootRoute.addChildren([
   qrScannerRoute,
   readDocumentRoute,
   galleryRoute,
+  convertRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -10,9 +10,11 @@
     /* Primary #2563EB */
     --primary: 0.546 0.218 262.9;
     --primary-foreground: 0.985 0 0;
-    --background: 1 0 0;
+    /* Warm off-white background */
+    --background: 0.98 0.004 264;
     /* #0F172A near-black */
     --foreground: 0.145 0.02 264;
+    /* Pure white cards pop against the background */
     --card: 1 0 0;
     --card-foreground: 0.145 0.02 264;
     --popover: 1 0 0;
@@ -47,22 +49,26 @@
   }
 
   .dark {
-    --background: 0.13 0.018 264;
+    /* Deep near-black with subtle blue tint */
+    --background: 0.09 0.015 264;
     --foreground: 0.94 0.01 264;
-    --card: 0.17 0.018 264;
+    /* Slightly lighter card surface */
+    --card: 0.13 0.018 264;
     --card-foreground: 0.94 0.01 264;
-    --popover: 0.17 0.018 264;
+    --popover: 0.13 0.018 264;
     --popover-foreground: 0.94 0.01 264;
     --primary: 0.62 0.2 262.9;
-    --primary-foreground: 0.13 0.018 264;
-    --secondary: 0.22 0.018 264;
+    --primary-foreground: 0.09 0.015 264;
+    /* Dark muted surface */
+    --secondary: 0.18 0.015 264;
     --secondary-foreground: 0.94 0.01 264;
-    --muted: 0.22 0.018 264;
+    --muted: 0.18 0.015 264;
     --muted-foreground: 0.62 0.02 264;
-    --border: 0.28 0.018 264;
-    --input: 0.28 0.018 264;
+    /* Subtle borders */
+    --border: 0.22 0.015 264;
+    --input: 0.22 0.015 264;
     --ring: 0.62 0.2 262.9;
-    --accent: 0.22 0.018 264;
+    --accent: 0.18 0.015 264;
     --accent-foreground: 0.94 0.01 264;
     --destructive: 0.55 0.22 27;
     --destructive-foreground: 0.985 0 0;
@@ -71,13 +77,13 @@
     --chart-3: 0.55 0.1 227;
     --chart-4: 0.75 0.16 84;
     --chart-5: 0.72 0.16 70;
-    --sidebar: 0.17 0.018 264;
+    --sidebar: 0.13 0.018 264;
     --sidebar-foreground: 0.94 0.01 264;
     --sidebar-primary: 0.62 0.2 262.9;
-    --sidebar-primary-foreground: 0.13 0.018 264;
-    --sidebar-accent: 0.22 0.018 264;
+    --sidebar-primary-foreground: 0.09 0.015 264;
+    --sidebar-accent: 0.18 0.015 264;
     --sidebar-accent-foreground: 0.94 0.01 264;
-    --sidebar-border: 0.28 0.018 264;
+    --sidebar-border: 0.22 0.015 264;
     --sidebar-ring: 0.62 0.2 262.9;
   }
 

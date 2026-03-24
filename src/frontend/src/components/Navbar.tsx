@@ -4,6 +4,7 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import {
   BookOpen,
   Crown,
+  FileImage,
   FileText,
   Images,
   Menu,
@@ -61,6 +62,7 @@ export default function Navbar() {
     { label: "Home", to: "/" },
     { label: "Scanner", to: "/scan" },
     { label: "My Documents", to: "/dashboard" },
+    { label: "Convert", to: "/convert" },
     { label: "QR Scanner", to: "/qr-scanner" },
     { label: "Read Document", to: "/read-document" },
     { label: "Gallery", to: "/gallery" },
@@ -69,7 +71,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-card/95 backdrop-blur-sm border-b border-border shadow-xs">
+    <header className="sticky top-0 z-50 bg-background/95 dark:bg-card/95 backdrop-blur-sm border-b border-border shadow-xs">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -105,6 +107,11 @@ export default function Navbar() {
                 ) : link.label === "Gallery" ? (
                   <span className="flex items-center gap-1">
                     <Images className="w-3.5 h-3.5" />
+                    {link.label}
+                  </span>
+                ) : link.label === "Convert" ? (
+                  <span className="flex items-center gap-1">
+                    <FileImage className="w-3.5 h-3.5" />
                     {link.label}
                   </span>
                 ) : link.label === "Premium" ? (
