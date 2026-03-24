@@ -1,11 +1,14 @@
 import { Toaster } from "@/components/ui/sonner";
 import {
+  Link,
   Outlet,
   RouterProvider,
   createRootRoute,
   createRoute,
   createRouter,
+  useRouterState,
 } from "@tanstack/react-router";
+import { FileImage } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -145,6 +148,26 @@ function PinLockOverlay({ onUnlock }: { onUnlock: () => void }) {
   );
 }
 
+// ─── Select & Convert FAB ─────────────────────────────────────────
+function ConvertFAB() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  if (pathname === "/convert") return null;
+
+  return (
+    <Link
+      to="/convert"
+      data-ocid="convert.open_modal_button"
+      className="fixed bottom-24 right-4 z-40 flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-primary-foreground shadow-lg ring-2 ring-primary/20 transition-all hover:bg-primary/90 hover:shadow-xl hover:scale-105 active:scale-95 md:px-5"
+      aria-label="Select & Convert images"
+    >
+      <FileImage className="h-5 w-5 shrink-0" />
+      <span className="hidden md:inline text-sm font-semibold whitespace-nowrap">
+        Select &amp; Convert
+      </span>
+    </Link>
+  );
+}
+
 function RootLayout() {
   const [pinUnlocked, setPinUnlocked] = useState(() => {
     return !localStorage.getItem("scanify_pin");
@@ -168,6 +191,7 @@ function RootLayout() {
         <Outlet />
       </main>
       <Footer />
+      <ConvertFAB />
       <ProfileSetup />
       <Toaster richColors />
     </div>
